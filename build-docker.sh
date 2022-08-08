@@ -54,7 +54,7 @@ fi
 # Modify original build-options to allow config file to be mounted in the docker container
 BUILD_OPTS="$(echo "${BUILD_OPTS:-}" | sed -E 's@\-c\s?([^ ]+)@-c /config@')"
 
-${DOCKER} build --build-arg BASE_IMAGE=ubuntu:22.04 -t live-custom-ubuntu-from-scratch "${DIR}"
+${DOCKER} build --build-arg BASE_IMAGE=ubuntu:${TARGET_UBUNTU_VERSION} -t live-custom-ubuntu-from-scratch "${DIR}"
 
 if [ "${CONTAINER_EXISTS}" != "" ]; then
 	trap 'echo "got CTRL+C... please wait 5s" && ${DOCKER} stop -t 5 ${CONTAINER_NAME}_cont' SIGINT SIGTERM
