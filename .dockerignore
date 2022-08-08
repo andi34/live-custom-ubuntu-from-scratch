@@ -1,0 +1,4 @@
+*.iso
+apt-cacher-ng/
+.git/objects/*
+scripts/*.iso

@@ -40,7 +40,9 @@ sudo apt-get install \
     xorriso \
     grub-pc-bin \
     grub-efi-amd64-bin \
-    mtools
+    mtools \
+    lsb-core \
+    sudo
 ```
 
 ```shell
