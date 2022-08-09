@@ -91,7 +91,7 @@ else
 fi
 
 echo "Copying iso from docker container"
-${DOCKER} cp "${CONTAINER_NAME}":/live-custom-ubuntu-from-scratch/scripts/${TARGET_NAME}.iso ./scripts/${TARGET_NAME}-${TARGET_UBUNTU_VERSION}-${BUILD_DATE}.iso
+${DOCKER} cp "${CONTAINER_NAME}":/live-custom-ubuntu-from-scratch/scripts/${TARGET_NAME}.iso ./scripts/${TARGET_NAME}-${TARGET_UBUNTU_VERSION}-${BUILD_DATE}-amd64.iso
 ls -lah scripts
 
 # cleanup
