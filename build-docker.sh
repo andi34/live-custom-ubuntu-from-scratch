@@ -13,6 +13,8 @@ BUILD_OPTS="$*"
 
 DOCKER="docker"
 
+BUILD_DATE=`TZ="UTC" date +"%y%m%d-%H%M%S"`
+
 if ! ${DOCKER} ps >/dev/null 2>&1; then
 	DOCKER="sudo docker"
 fi
@@ -89,7 +91,7 @@ else
 fi
 
 echo "Copying iso from docker container"
-${DOCKER} cp "${CONTAINER_NAME}":/live-custom-ubuntu-from-scratch/scripts/${TARGET_NAME}.iso ./scripts/${TARGET_NAME}.iso
+${DOCKER} cp "${CONTAINER_NAME}":/live-custom-ubuntu-from-scratch/scripts/${TARGET_NAME}.iso ./scripts/${TARGET_NAME}-${BUILD_DATE}.iso
 ls -lah scripts
 
 # cleanup
