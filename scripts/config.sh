@@ -50,7 +50,6 @@ function customize_image() {
     clamav-daemon \
     apt-transport-https \
     curl \
-    vim \
     nano \
     less \
     openssh-server \
