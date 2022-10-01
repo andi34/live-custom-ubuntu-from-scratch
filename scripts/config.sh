@@ -83,8 +83,8 @@ function customize_image() {
     fi
 
     # install photobooth
-    $USER_NAME="photobooth"
-    $PASSWORD="photobooth"
+    USER_NAME="photobooth"
+    PASSWORD="photobooth"
     useradd -m -p $(openssl passwd -1 $PASSWORD) $USER_NAME
     usermod -aG sudo $USER_NAME
 
