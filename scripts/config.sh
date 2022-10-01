@@ -7,7 +7,7 @@
 
 # The version of Ubuntu to generate.  Successfully tested: bionic, cosmic, disco, eoan, focal, groovy, jammy
 # See https://wiki.ubuntu.com/DevelopmentCodeNames for details
-export TARGET_UBUNTU_VERSION="jammy"
+export TARGET_UBUNTU_VERSION="focal"
 
 # The Ubuntu Mirror URL. It's better to change for faster download.
 # More mirrors see: https://launchpad.net/ubuntu/+archivemirrors
@@ -75,12 +75,13 @@ function customize_image() {
     aisleriot \
     hitori \
     libreoffice* \
-    thunderbird
+    thunderbird \
+    firefox
 
     # install photobooth
     pwd
     ls -l
-    wget https://raw.githubusercontent.com/andi34/photobooth/dev/install-photobooth.sh -O tmp/install-photobooth.sh
+    wget https://raw.githubusercontent.com/PhotoboothProject/photobooth/dev/install-photobooth.sh -O tmp/install-photobooth.sh
     chmod +x tmp/install-photobooth.sh
     tmp/install-photobooth.sh -s
     rm tmp/install-photobooth.sh
