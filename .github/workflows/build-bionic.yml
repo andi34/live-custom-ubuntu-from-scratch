@@ -2,14 +2,19 @@ name: build-bionic
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
+      - photobooth-docker
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
+      - photobooth-docker
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-20.04
+    if: github.repository == 'andi34/live-custom-ubuntu-from-scratch'
 
     steps:
       - uses: actions/checkout@v2
@@ -17,12 +22,12 @@ jobs:
       - name: Build
         run: |
           cd scripts
-          sed -i -E 's/TARGET_UBUNTU_VERSION=(.*)/TARGET_UBUNTU_VERSION="bionic"/g' default_config.sh
+          sed -i -E 's/TARGET_UBUNTU_VERSION=(.*)/TARGET_UBUNTU_VERSION="bionic"/g' config.sh
           ./build.sh -
       - name: Archive artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: ubuntu-from-scratch
+          name: photobooth-bionic
           path: |
-            scripts/ubuntu-from-scratch.iso
+            scripts/photobooth.iso
             scripts/image/md5sum.txt
