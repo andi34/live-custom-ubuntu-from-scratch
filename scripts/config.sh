@@ -77,6 +77,11 @@ function customize_image() {
     libreoffice* \
     thunderbird
 
+    if [ $(dpkg-query -W -f='${Status}' "firefox" 2>/dev/null | grep -c "ok installed") -eq 1 ]; then
+        info "[Cleanup]   Removing firefox"
+        apt purge -y firefox
+    fi
+
     # install photobooth
     $USER_NAME="photobooth"
     $PASSWORD="photobooth"
