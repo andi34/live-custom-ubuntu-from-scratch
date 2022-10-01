@@ -83,6 +83,7 @@ function customize_image() {
     fi
 
     # install photobooth
+    apt-get install -y iputils-ping
     USER_NAME="photobooth"
     PASSWORD="photobooth"
     useradd -m -p $(openssl passwd -1 $PASSWORD) $USER_NAME
