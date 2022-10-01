@@ -78,11 +78,16 @@ function customize_image() {
     thunderbird
 
     # install photobooth
+    $USER_NAME="photobooth"
+    $PASSWORD="photobooth"
+    useradd -m -p $(openssl passwd -1 $PASSWORD) $USER_NAME
+
     pwd
     ls -l
-    wget https://raw.githubusercontent.com/andi34/photobooth/dev/install-photobooth.sh -O tmp/install-photobooth.sh
+    wget https://raw.githubusercontent.com/PhotoboothProject/photobooth/dev/install-photobooth.sh -O tmp/install-photobooth.sh
     chmod +x tmp/install-photobooth.sh
-    tmp/install-photobooth.sh -s
+    tmp/install-photobooth.sh -username="${USER_NAME}" -silent -branch="stable4"
+
     rm tmp/install-photobooth.sh
     # automatic loading of v4l loopback kernal module for live preview
     apt-get install -y v4l2loopback-dkms
